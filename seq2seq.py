@@ -121,8 +121,8 @@ def prepare_data(lang1, lang2, reverse=False):
     # Count words
     print('Counting words...')
     for pair in pairs:
-        input_lang.addSentence(pair[0])
-        output_lang.addSentence(pair[1])
+        input_lang.add_sentence(pair[0])
+        output_lang.add_sentence(pair[1])
 
     print('Counted words:')
     print(input_lang.name, input_lang.n_words)
@@ -224,7 +224,7 @@ class AttnDecoderRNN(nn.Module):
 
         self.embedding = nn.Embedding(self.output_size, self.hidden_size)
         self.attention = nn.Linear(self.hidden_size * 2, self.max_length)
-        self.attention_combine = nn.Linear(self.hiddensize * 2, self.hidden_size)
+        self.attention_combine = nn.Linear(self.hidden_size * 2, self.hidden_size)
         self.dropout = nn.Dropout(self.dropout_p)
 
         self.gru = nn.GRU(self.hidden_size, self.hidden_size)
@@ -423,7 +423,7 @@ def train_iters(encoder, decoder, n_iters, print_every=1000, plot_every=100, lea
 
 ##### PLOTTING RESULTS
 import matplotlib.pyplot as plt
-plt.switch_backgend('agg')
+plt.switch_backend('agg')
 import matplotlib.ticker as ticker
 import numpy as np
 
@@ -542,3 +542,8 @@ evaluate_and_show_attention('elle a cinq ans de moins que moi .')
 evaluate_and_show_attention('elle est trop petit .')
 evaluate_and_show_attention('je ne crains pas de mourir .')
 evaluate_and_show_attention('c est un jeune directeur plein de talent .')
+
+# Save model
+print('Saving model...')
+torch.save(encoder, 'encoder.pt')
+torch.save(attention_decoder, 'attention_decoder.pt')
