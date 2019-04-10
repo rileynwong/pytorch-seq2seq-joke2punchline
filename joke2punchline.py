@@ -90,8 +90,15 @@ def pair_filter(p):
     If X to eng/reverse=True -> p[1].startswith
     If eng to X/reverse=False -> p[0].startswith
     """
-    return (len(p[0].split(' ')) < MAX_LENGTH and \
-        len(p[1].split(' ')) < MAX_LENGTH)
+    filtered = False
+
+    try:
+        filtered = (len(p[0].split(' ')) < MAX_LENGTH and \
+            len(p[1].split(' ')) < MAX_LENGTH)
+    except:
+        print('Error with pair: ', p)
+
+    return filtered
 
 def filter_pairs(pairs):
     # Apply pair filter
