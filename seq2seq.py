@@ -1,7 +1,6 @@
 from __future__ import unicode_literals, print_function, division
 from io import open
 import unicodedata
-import string
 import re
 import random
 
@@ -202,7 +201,7 @@ class DecoderRNN(nn.Module):
 """
 Calculate a set of attention weights.
 
-Multiply attention weights by the encoder output bectors to create a weighted
+Multiply attention weights by the encoder output vectors to create a weighted
 combination. The result would contain information about that specific part of
 the input sequence, and thus help the decoder choose the right output words.
 
@@ -425,7 +424,6 @@ def train_iters(encoder, decoder, n_iters, print_every=1000, plot_every=100, lea
 import matplotlib.pyplot as plt
 plt.switch_backend('agg')
 import matplotlib.ticker as ticker
-import numpy as np
 
 def show_plot(points):
     plt.figure()
