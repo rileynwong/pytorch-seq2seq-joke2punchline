@@ -135,7 +135,7 @@ def prepare_data(lang1, lang2, reverse=False):
     return input_lang, output_lang, pairs
 
 # Sample pairs
-input_lang, output_lang, pairs = prepare_data('jokes', 'punchlines', False)
+input_lang, output_lang, pairs = prepare_data('jokes', 'punchlines', True)
 print(random.choice(pairs))
 
 
@@ -504,8 +504,8 @@ hidden_size = 256
 # attention_decoder = AttnDecoderRNN(hidden_size, output_lang.n_words, dropout_p=0.1).to(device)
 
 ## Load previously trained models
-encoder = torch.load('encoder_joke_punchline.pt')
-attention_decoder = torch.load('attention_decoder_joke_punchline.pt')
+encoder = torch.load('encoder_punchline_joke.pt')
+attention_decoder = torch.load('attention_decoder_punchline_joke.pt')
 
 n_iters = 75000
 # train_iters(encoder, attention_decoder, n_iters, print_every=5000)
@@ -514,10 +514,10 @@ n_iters = 75000
 
 
 ### Visualizing Attention
-test_phrase = 'why did the cookie go to the hospital ?'
-
-output_words, attentions = evaluate(encoder, attention_decoder, test_phrase)
-plt.matshow(attentions.numpy())
+# test_phrase = 'shadow .'
+#
+# output_words, attentions = evaluate(encoder, attention_decoder, test_phrase)
+# plt.matshow(attentions.numpy())
 
 def show_attention(input_sentence, output_words, attentions):
     # TODO savefig
@@ -548,37 +548,72 @@ def evaluate_and_show_attention(input_sentence):
 
 
 # Test cases
-evaluate_and_show_attention('why did the chicken cross the road ?')
+evaluate_and_show_attention('thunderwear')
 
-evaluate_and_show_attention('what do you call an unorganized turkey ?')
-evaluate_and_show_attention('what do you call a shortage of shorts ?')
-evaluate_and_show_attention('where is the octopus s garden ?')
-evaluate_and_show_attention('what do you call an upside down bee ?')
-evaluate_and_show_attention('what do you call an upside down egg ?')
-evaluate_and_show_attention('what do you call a musical with two penguins ?')
-evaluate_and_show_attention('what do you call a scientist with wooden socks ?')
-evaluate_and_show_attention('when is a tailor wrong ?')
-evaluate_and_show_attention('how much yogurt can the moon eat ?')
-evaluate_and_show_attention('what is the difference between the sun and the moon ?')
-evaluate_and_show_attention('what is the difference between a garden and a school ?')
-evaluate_and_show_attention('what do you call a pile of pillowcases ?')
-evaluate_and_show_attention('what do you call a pile of sweaters ?')
-evaluate_and_show_attention('what do you call a pile of sugar ?')
-evaluate_and_show_attention('what kind of suit does a sun wear ?')
-evaluate_and_show_attention('why was the sun unhappy ?')
-evaluate_and_show_attention('why was the moon unhappy ?')
-evaluate_and_show_attention('what did the skeleton say when they died the wrong year ?')
-evaluate_and_show_attention('what is thunder s favorite noise ?')
-evaluate_and_show_attention('what is lightning s favorite scientist ?')
-evaluate_and_show_attention('how many snails does it take to get to the moon ?')
-evaluate_and_show_attention('how many emotions does it take to get to the moon ?')
-evaluate_and_show_attention('why was the moon crying ?')
-evaluate_and_show_attention('how many emotions does the sun have ?')
-evaluate_and_show_attention('where do sheep go to school ?')
-evaluate_and_show_attention('why do ghosts haunt the ocean ?')
-evaluate_and_show_attention('what do you call the sound with a fever ?')
+evaluate_and_show_attention('reality is sour')
+evaluate_and_show_attention('cereal hell')
+evaluate_and_show_attention('iron investigator')
+evaluate_and_show_attention('just ketchup')
+evaluate_and_show_attention('jalapeno ketchup')
+evaluate_and_show_attention('the robins need')
+evaluate_and_show_attention('they dyed')
+evaluate_and_show_attention('the scientists went under')
+evaluate_and_show_attention('soup for the soul')
+evaluate_and_show_attention('sherbet salad')
+evaluate_and_show_attention('ice cream salad !')
+evaluate_and_show_attention('honey for dinner')
+evaluate_and_show_attention('jalapeno galaxy')
+evaluate_and_show_attention('koala galaxy')
+evaluate_and_show_attention('the impossible !')
+evaluate_and_show_attention('nacho pasta')
+evaluate_and_show_attention('both !')
+evaluate_and_show_attention('both eggs !')
+evaluate_and_show_attention('dressing the dressmaker')
+evaluate_and_show_attention('the best galaxy')
+# evaluate_and_show_attention('the scientists recommended three seconds')
+evaluate_and_show_attention('soft snooze')
+evaluate_and_show_attention('trophy for two')
+evaluate_and_show_attention('watermelon milk')
+evaluate_and_show_attention('very vicious virus')
+evaluate_and_show_attention('watermelon concentrate')
+# evaluate_and_show_attention('the scientists recommended lawsuits')
+evaluate_and_show_attention('two jokes')
+evaluate_and_show_attention('good jokes')
+# evaluate_and_show_attention('the sorcerer recommended good jokes')
+evaluate_and_show_attention('pasta party')
+evaluate_and_show_attention('salad party')
+# evaluate_and_show_attention('the scientists recommended a good party')
+# evaluate_and_show_attention('the scientist recommended a good library')
+# evaluate_and_show_attention('the cat s favourite library')
+evaluate_and_show_attention('garbage galaxy')
+evaluate_and_show_attention('sleeping')
+evaluate_and_show_attention('a thesaurus and a dictionary')
+evaluate_and_show_attention('pet bee')
+evaluate_and_show_attention('four stories')
+evaluate_and_show_attention('four robins sleeping under an umbrella')
+evaluate_and_show_attention('sleeping under an umbrella')
+evaluate_and_show_attention('the bear was sleeping under an umbrella !')
+evaluate_and_show_attention('muscle music')
+evaluate_and_show_attention('sleeping microwaves')
+evaluate_and_show_attention('microwaves making music')
+evaluate_and_show_attention('ten seconds')
+# evaluate_and_show_attention('stole ten second')
+# evaluate_and_show_attention('stole the soft spac')
+# evaluate_and_show_attention('stole a sneez')
+# evaluate_and_show_attention('the sorcerer stole a plane')
+# evaluate_and_show_attention('stole a plane')
+# evaluate_and_show_attention('the scientists stole a plane')
+evaluate_and_show_attention('the meteor had fallen in love')
+evaluate_and_show_attention('the meteor was made of cheese')
+evaluate_and_show_attention('ten lawsuits')
+evaluate_and_show_attention('the clouds were sleeping')
+evaluate_and_show_attention('the cloud s best dreams')
+# evaluate_and_show_attention('the meteor stole dreams')
+# evaluate_and_show_attention('the scientists stole dreams')
+
+
 
 # Save model
 # print('Saving model...')
-# torch.save(encoder, 'encoder_joke_punchline.pt')
-# torch.save(attention_decoder, 'attention_decoder_joke_punchline.pt')
+# torch.save(encoder, 'encoder_punchline_joke.pt')
+# torch.save(attention_decoder, 'attention_decoder_punchline_joke.pt')
