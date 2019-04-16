@@ -1,8 +1,8 @@
 # PyTorch Seq2Seq: Joke2Punchline, Punchline2Joke, and English<>French 
 PyTorch implementation of the [sequence-to-sequence](https://arxiv.org/abs/1409.3215) neural network model with [attention](https://arxiv.org/abs/1409.0473). Includes pre-trained models for:
-- joke2punchline: Given a question-format joke, output a generated punchline.
-- punchline2joke: Given a punchline, output a generated question-format joke.
-- eng<>fra: Given a French sentence, output its English translation, or vice versa.
+- **joke2punchline**: Given a question-format joke, output a generated punchline.
+- **punchline2joke**: Given a punchline, output a generated question-format joke.
+- **eng<>fra**: Given a French sentence, output its English translation, or vice versa.
 
 See blog posts on [seq2seq language translation](https://www.rileynwong.com/blog/2019/4/3/implementing-a-seq2seq-neural-network-with-attention-for-machine-translation-from-scratch-using-pytorch) and for [joke2punchline and punchline2joke](https://www.rileynwong.com/blog/2019/4/12/joke2punchline-punchline2joke-using-a-seq2seq-neural-network-to-translate-between-jokes-and-punchlines) (contains more examples!).
 
