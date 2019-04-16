@@ -1,4 +1,4 @@
-# PyTorch Seq2Seq / Joke2Punchline / Punchline2Joke
+# PyTorch Seq2Seq: Joke2Punchline, Punchline2Joke, and English<>French 
 PyTorch implementation of the [sequence-to-sequence](https://arxiv.org/abs/1409.3215) neural network model with [attention](https://arxiv.org/abs/1409.0473). Includes pre-trained models for:
 - joke2punchline: Given a question-format joke, output a generated punchline.
 - punchline2joke: Given a punchline, output a generated question-format joke.
